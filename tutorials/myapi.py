@@ -5,14 +5,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# data
-# students = {
-#     1: {
-#         "name": "John",
-#         "age": 23,
-#         "degree": "M.S"
-#     }
-# }
 students = {}
 
 
