@@ -8,8 +8,10 @@ todos = {}
 
 # GET [SELECT RECORD]
 
+
 class task(BaseModel):
     task: str
+
 
 @app.get("/", tags=['Root'])
 async def root() -> dict:
@@ -26,7 +28,7 @@ async def todo() -> dict:
 async def todo(id: str, tasks: task) -> dict:
     if id in todos:
         return {"error": " exist already"}
-    todos[id]=tasks
+    todos[id] = tasks
     return {"result": "successfully added task to todos."}
 
 
@@ -34,11 +36,13 @@ async def todo(id: str, tasks: task) -> dict:
 @app.put("/todo/{id}", tags=['Todo'])
 async def todo(id: str, tasks: task) -> dict:
     if id in todos:
-        todos[id]=tasks
+        todos[id] = tasks
         return {"result": "updated successfully"}
     return {"error": "not able to find the todo ID"}
 
 # DELETE [DELETE RECORD]
+
+
 @app.delete("/todo/{id}", tags=['Todo'])
 async def todo(id: str) -> dict:
     if id in todos:
